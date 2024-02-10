@@ -1,2 +1,4 @@
 "use strict";
-console.log("yes");
+import Board from "./board.js";
+const board1 = new Board('container');
+
