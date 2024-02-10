@@ -2,14 +2,15 @@
   box-sizing: border-box;
 }
 
-.container {
+div[id|=board] {
   width: 230px;
-  height: 230px;
+  height: 290px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 80px) auto;
+  position: relative;
 }
-.container > .cell {
+div[id|=board] > .cell {
   width: 70px;
   height: 70px;
   background-color: #eee;
@@ -24,16 +25,32 @@
   font-size: 2rem;
   font-weight: bold;
 }
-.container > .cell:hover {
+div[id|=board] > .cell:hover {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1), 5px 5px 8px rgba(0, 0, 0, 0.1) inset, -5px -5px 8px rgba(0, 0, 0, 0.1) inset;
 }
-.container > .cell-focus {
+div[id|=board] > .cell-focus {
   width: 65px;
   height: 65px;
   transform: translate(2.5px, 2.5px);
 }
-.container > .cell.win {
+div[id|=board] > .cell.win {
   background-color: #00ee00;
+}
+div[id|=board] > h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  grid-column-start: 2;
+  margin: 0;
+}
+div[id|=board] > .layout {
+  width: 224px;
+  height: 231px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
 }
 
 /*# sourceMappingURL=style.css.map */

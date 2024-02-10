@@ -4,13 +4,13 @@
 
 $side_length: 210px;
 
-.container{
+div[id|='board']{
   width: $side_length + 20px;
-  height: $side_length + 20px;
+  height: $side_length + 80px;
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  grid-template-rows: repeat(3,1fr);
-
+  grid-template-rows: repeat(3,80px) auto;
+  position: relative;
   > .cell{
     width: $side_length/3;
     height: $side_length/3;
@@ -37,8 +37,23 @@ $side_length: 210px;
     &.win{
       background-color: #00ee00;
     }
+  }
+  > h3{
+    text-align: center;
+    font-size: 1.5rem;
+    grid-column-start: 2;
+    margin: 0;
+  }
 
-
+  >.layout{
+    width: 224px;
+    height: 231px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
   }
 
 }
