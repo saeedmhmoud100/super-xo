@@ -2,14 +2,14 @@
   box-sizing: border-box;
 }
 
-$side_length: 210px;
+$side_length: 200px;
 
 div[id|='board']{
-  width: $side_length + 20px;
-  height: $side_length + 80px;
+  width: $side_length;
+  height: $side_length ;
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  grid-template-rows: repeat(3,80px) auto;
+  grid-template-rows: repeat(3,70px) auto;
   position: relative;
   > .cell{
     width: $side_length/3;
@@ -46,14 +46,72 @@ div[id|='board']{
   }
 
   >.layout{
-    width: 224px;
-    height: 231px;
+    width: 201px;
+    height: 206px;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 12px;
+    > h3{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%) rotate(30deg);
+      font-size: 3em;
+      color: red;
+      margin: 0;
+      text-align: center;
+    }
   }
 
+}
+
+
+
+#container{
+  width: $side_length *3 +40px;
+  height: $side_length *3 +40px;
+  display: grid;
+  grid-template-columns: repeat(3,$side_length);
+  grid-template-rows: repeat(3,$side_length +5px);
+  gap: 20px;
+  column-rule: black 1px solid;
+  margin: auto;
+  position: relative;
+  > .layout{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(0,0,0,.001);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    color: rebeccapurple;
+    text-decoration: underline;
+    > h3{
+      background-color: rgba(0,0,0,.8);
+      padding: 30px;
+
+      > button{
+        display: block;
+        text-align: center;
+        margin: auto;
+        width: 65%;
+        padding: 7%;
+        border-radius: 10px;
+        background-color: #00ee00;
+        z-index: 3;
+        position: relative;
+        cursor: pointer;
+        font-size: 1.3rem;
+        text-decoration: none;
+      }
+    }
+  }
 }

@@ -1,6 +1,8 @@
 "use strict";
 class Board {
     static obj_number;
+    static last_index;
+    static x_turn;
     constructor(dir_id_to_render) {
         Board.obj_number++;
         this.dir_id_to_render = dir_id_to_render;
@@ -15,20 +17,19 @@ class Board {
                 (this.buttons)[i] = -1;
             }
         }
-        this.x_turn = true;
         this.n_move = 0;
         this.layout=false;
         this.render_to_html();
     }
     button_click(ind) {
         if (this.buttons[ind] === -1 && this.win1===-1) {
-            this.buttons[ind] = +this.x_turn;
-            this.x_turn = !this.x_turn;
+            this.buttons[ind] = +Board.x_turn;
+            Board.x_turn = !Board.x_turn;
             this.n_move++;
             this.check_winning()
             this.render_to_html();
+            Board.last_index= ind;
         }
-
     }
 
     add_wins(b1,b2,b3){
@@ -72,8 +73,9 @@ class Board {
 
         if(b){
             this.is_winning =true;
-            this.winner = this.x_turn ? 'o' : 'x';
+            this.winner = Board.x_turn ? 'x' : 'o';
             this.add_layout()
+
         }
 
     }
@@ -97,17 +99,15 @@ class Board {
         for (let i =0;i<9;i++) {
             html += `<div name="${Board.obj_number+'-'+i}" class="cell ${i === this.win1 || i === this.win2 || i === this.win3 ? "win" : ""}">${this.renderSymbol(i)}</div>`;
         }
-        if(this.is_winning){
-            html+= `<h3>${this.winner +' wins'}</h3>`
-        }
-
-        if(this.n_move ===9){
-            html+= `<h3>${"no one" +' wins'}</h3>`
-        }
-
-
+        let lay='';
         if(this.layout){
-            const lay = `<div class="layout"></div>`
+            let lay = `<div class="layout"><h3>`
+            if(this.is_winning){
+                lay+= `${this.winner +' wins'}`
+            }else if(this.n_move ===9){
+                lay+="no one wins"
+            }
+            lay+='</h3></div>'
             html+=lay;
         }
 
