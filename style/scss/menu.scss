@@ -1,3 +1,5 @@
+@use "utilities" as *;
+
 .menu{
   >img{
     margin: auto;
@@ -16,16 +18,8 @@
     padding: 13px 33px;
     border-radius: 14px;
     > button{
-      display: block;
-      text-align: center;
+      @extend .my-button;
       width: 12rem;
-      padding: 10px;
-      border-radius: 10px;
-      background-color: #00ee00;
-      z-index: 3;
-      position: relative;
-      cursor: pointer;
-      text-decoration: none;
       font-size: 2rem;
       margin: 2px;
     }

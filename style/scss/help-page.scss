@@ -1,0 +1,14 @@
+.help-container{
+  width: 600px;
+  height: 400px;
+  background-color: #eee;
+  margin: 10dvh auto auto auto;
+  box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.6509803922);
+  border-radius: 10px;
+  padding: 17px 5px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  > ol > li{
+    margin: 15px 0;
+  }
+}

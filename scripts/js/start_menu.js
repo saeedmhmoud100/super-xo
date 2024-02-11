@@ -1,7 +1,9 @@
 
 import MainBoard from "./main_board.js";
 
+function render_help_page(element_id){
 
+}
 
 
 function render_menu(element_id='root'){
@@ -10,11 +12,14 @@ function render_menu(element_id='root'){
       <img src="images/menu-img.jpg" alt="img">
       <div class="menu-buttons">
         <button class="play-button" id="play-button">Play</button>
-        <button class="help-button">Help</button>
+        <button class="help-button" id="help-button">Help</button>
       </div>
     </div>`
     document.getElementById('play-button').addEventListener('click',_=>{
         render_xo()
+    })
+    document.getElementById('help-button').addEventListener('click',_=>{
+        render_help_page(element_id)
     })
 }
 
