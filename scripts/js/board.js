@@ -103,7 +103,7 @@ class Board {
         if(this.layout){
             let lay = `<div class="layout"><h3>`
             if(this.is_winning){
-                lay+= `${this.winner +' wins'}`
+                lay+= `${this.winner}`
             }else if(this.n_move ===9){
                 lay+="no one wins"
             }
