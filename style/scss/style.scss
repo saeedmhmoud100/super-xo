@@ -71,8 +71,8 @@ div[id|='board']{
 
 
 #container{
-  width: $side_length *3 +40px;
-  height: $side_length *3 +40px;
+  width: $side_length *3 +56px;
+  height: $side_length *3 +76px;
   display: grid;
   grid-template-columns: repeat(3,$side_length);
   grid-template-rows: repeat(3,$side_length +5px);
@@ -80,6 +80,10 @@ div[id|='board']{
   column-rule: black 1px solid;
   margin: auto;
   position: relative;
+  border: 2px solid black;
+  padding: 6px;
+  box-shadow: 0 0 20px 4px #000000a6;
+  border-radius: 15px;
   > .layout{
     width: 100%;
     height: 100%;
@@ -115,6 +119,49 @@ div[id|='board']{
         font-size: 1.3rem;
         text-decoration: none;
       }
+    }
+  }
+
+  &::after{
+    content: "";
+    display: block;
+    height: 92%;
+    width: 1px;
+    margin: 4% 33%;
+    background-color: black;
+    position: absolute;
+  }
+  &::before{
+    content: "";
+    display: block;
+    height: 92%;
+    width: 1px;
+    margin: 4% 66.6%;
+    background-color: black;
+    position: absolute;
+  }
+
+  > .lines{
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    &::before{
+      content: "";
+      display: block;
+      width: 92%;
+      height: 1px;
+      margin: 34% 4%;
+      background-color: black;
+      position: absolute;
+    }
+    &::after{
+      content: "";
+      display: block;
+      width: 92%;
+      height: 1px;
+      margin: 68.3% 4%;
+      background-color: black;
+      position: absolute;
     }
   }
 }

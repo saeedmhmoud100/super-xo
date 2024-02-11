@@ -34,7 +34,7 @@ class MainBoard{
             }
 
             if(all){
-                this.boards.map((e,i) => {
+                this.boards.map(e => {
                     if(!e.is_winning){
                         e.remove_layout()
                     }
@@ -46,7 +46,7 @@ class MainBoard{
 
 
     render_board_html(root=this.root_element_id){
-        let html =''
+        let html ='<div class="lines"></div>'
         for (let i = 0; i < 9; i++) {
             html += `<div id="board-${i}"></div>`
         }
@@ -54,7 +54,7 @@ class MainBoard{
         document.getElementById(root).innerHTML = html;
     }
 
-    add_wins(b1,b2,b3){
+    add_wins(){
         this.winner = Board.x_turn ? 'x' : 'o';
     }
 
