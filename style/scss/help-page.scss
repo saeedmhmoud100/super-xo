@@ -10,5 +10,8 @@
   font-weight: bold;
   > ol > li{
     margin: 15px 0;
+    &:last-child{
+      margin-bottom: 48px;
+    }
   }
 }

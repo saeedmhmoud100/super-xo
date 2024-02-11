@@ -12,5 +12,8 @@
 .help-container > ol > li {
   margin: 15px 0;
 }
+.help-container > ol > li:last-child {
+  margin-bottom: 48px;
+}
 
 /*# sourceMappingURL=help-page.css.map */

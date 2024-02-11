@@ -2,7 +2,22 @@
 import MainBoard from "./main_board.js";
 
 function render_help_page(element_id){
+    document.getElementById(element_id).innerHTML = `
+        <div class="help-container" id="help-container">
+        <ol>
+    
+          <li>in first you can play in any place</li>
+          <li>once you played, the second player has to play in the main board at the same index you played in the small board</li>
+          <li>if the board that you will play in is over then it's a free move</li>
+          <li>free move: move that you can play in any place</li>
+        </ol>
+        <button id="menu-button" class="my-button">menu</button>
+      </div>
+    `
 
+    document.getElementById('menu-button').addEventListener('click',_=>{
+        render_menu()
+    })
 }
 
 
@@ -15,9 +30,11 @@ function render_menu(element_id='root'){
         <button class="help-button" id="help-button">Help</button>
       </div>
     </div>`
+
     document.getElementById('play-button').addEventListener('click',_=>{
         render_xo()
     })
+
     document.getElementById('help-button').addEventListener('click',_=>{
         render_help_page(element_id)
     })
