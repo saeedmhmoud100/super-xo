@@ -19,9 +19,11 @@ function render_menu(element_id='root'){
 }
 
 function render_xo(element_id='root'){
-    document.getElementById(element_id).innerHTML = `<div class="container" id="container"></div><button class="my-button">Menu</button>`
+    document.getElementById(element_id).innerHTML = `<div class="container" id="container"></div><button id="menu-button" class="my-button">Menu</button>`
     let board = new MainBoard('container')
-
+    document.getElementById('menu-button').addEventListener('click',_=> {
+        render_menu()
+    })
 
     function reset_game(e){
         e.stopPropagation();
@@ -34,6 +36,5 @@ function render_xo(element_id='root'){
 
 
 window.addEventListener('load',_=>{
-    console.log('s')
     render_menu()
 })
