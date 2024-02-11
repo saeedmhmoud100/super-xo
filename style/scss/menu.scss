@@ -1,0 +1,35 @@
+.menu{
+  >img{
+    margin: auto;
+    margin-top: 45px;
+    display: block;
+  }
+  > .menu-buttons{
+    margin: 10dvh auto auto auto;
+    transform: translateY(-50%);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccc;
+    width: max-content;
+    padding: 13px 33px;
+    border-radius: 14px;
+    > button{
+      display: block;
+      text-align: center;
+      width: 12rem;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #00ee00;
+      z-index: 3;
+      position: relative;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 2rem;
+      margin: 2px;
+    }
+  }
+
+
+}

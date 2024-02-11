@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+body {
+  background: url("../../images/background.jpg") no-repeat;
+  background-size: cover;
+}
+
 div[id|=board] {
   width: 200px;
   height: 200px;
@@ -64,6 +69,7 @@ div[id|=board] > .layout > h3 {
 }
 
 #container {
+  background-color: #ccc;
   width: 656px;
   height: 676px;
   display: grid;
@@ -77,6 +83,29 @@ div[id|=board] > .layout > h3 {
   padding: 6px;
   box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.6509803922);
   border-radius: 15px;
+}
+#container > .lines {
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+#container > .lines::before {
+  content: "";
+  display: block;
+  width: 92%;
+  height: 1px;
+  margin: 34% 4%;
+  background-color: black;
+  position: absolute;
+}
+#container > .lines::after {
+  content: "";
+  display: block;
+  width: 92%;
+  height: 1px;
+  margin: 68.3% 4%;
+  background-color: black;
+  position: absolute;
 }
 #container > .layout {
   width: 100%;
@@ -129,29 +158,6 @@ div[id|=board] > .layout > h3 {
   height: 92%;
   width: 1px;
   margin: 4% 66.6%;
-  background-color: black;
-  position: absolute;
-}
-#container > .lines {
-  position: absolute;
-  width: 100%;
-  z-index: -1;
-}
-#container > .lines::before {
-  content: "";
-  display: block;
-  width: 92%;
-  height: 1px;
-  margin: 34% 4%;
-  background-color: black;
-  position: absolute;
-}
-#container > .lines::after {
-  content: "";
-  display: block;
-  width: 92%;
-  height: 1px;
-  margin: 68.3% 4%;
   background-color: black;
   position: absolute;
 }

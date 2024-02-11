@@ -16,31 +16,35 @@ class MainBoard{
         this.root_element_id=root_element_id;
 
 
-        document.getElementById(root_element_id).addEventListener('click',_=>{
-            let all =false;
-            if(this.winner === ''){
+        document.getElementById(root_element_id).addEventListener('click',e=>{
 
-                this.boards.map((e,i) => {
-                    if(!all && i===Board.last_index){
-                        if(e.is_winning){
-                            all = true
+            if(e.target.classList.contains("cell")){
+                let all =false;
+                if(this.winner === ''){
+
+                    this.boards.map((e,i) => {
+                        if(!all && i===Board.last_index){
+                            if(e.is_winning || e.n_move===9){
+                                all = true
+                            }
+                            else
+                                e.remove_layout()
+                        }else{
+                            e.add_layout()
                         }
-                        else
+                    })
+                }
+
+                if(all){
+                    this.boards.map(e => {
+                        if(!e.is_winning){
                             e.remove_layout()
-                    }else{
-                        e.add_layout()
-                    }
-                })
+                        }
+                    })
+                }
+                this.check_winning();
             }
 
-            if(all){
-                this.boards.map(e => {
-                    if(!e.is_winning){
-                        e.remove_layout()
-                    }
-                })
-            }
-            this.check_winning();
         })
     }
 
@@ -72,30 +76,30 @@ class MainBoard{
 
     check_winning(){
         let b;
-        if(this.boards[0].is_winning === this.boards[1].is_winning && this.boards[0].is_winning === this.boards[2].is_winning && this.boards[2].is_winning !==false){
+        if(this.boards[0].winner === this.boards[1].winner && this.boards[0].winner === this.boards[2].winner && this.boards[2].winner !==''){
             this.add_wins(0,1,2)
             b=true;
-        }else if(this.boards[3].is_winning === this.boards[4].is_winning && this.boards[3].is_winning === this.boards[5].is_winning &&this.boards[5].is_winning !==false){
+        }else if(this.boards[3].winner === this.boards[4].winner && this.boards[3].winner === this.boards[5].winner &&this.boards[5].winner !==''){
             b=true;
             this.add_wins(3,4,5)
-        }else if(this.boards[6].is_winning === this.boards[7].is_winning && this.boards[6].is_winning === this.boards[8].is_winning &&this.boards[8].is_winning!==false){
+        }else if(this.boards[6].winner === this.boards[7].winner && this.boards[6].winner === this.boards[8].winner &&this.boards[8].winner!==''){
             b=true;
             this.add_wins(6,7,8)
         }
-        else if(this.boards[0].is_winning === this.boards[3].is_winning && this.boards[0].is_winning === this.boards[6].is_winning&& this.boards[6].is_winning!==false){
+        else if(this.boards[0].winner === this.boards[3].winner && this.boards[0].winner === this.boards[6].winner&& this.boards[6].winner!==''){
             b=true;
             this.add_wins(0,3,6)
-        }else if(this.boards[1].is_winning === this.boards[4].is_winning && this.boards[1].is_winning === this.boards[7].is_winning&&this.boards[7].is_winning !==false){
+        }else if(this.boards[1].winner === this.boards[4].winner && this.boards[1].winner === this.boards[7].winner&&this.boards[7].winner !==''){
             b=true;
             this.add_wins(1,4,7)
-        }else if(this.boards[2].is_winning === this.boards[5].is_winning && this.boards[2].is_winning === this.boards[8].is_winning&& this.boards[8].is_winning!==false){
+        }else if(this.boards[2].winner === this.boards[5].winner && this.boards[2].winner === this.boards[8].winner&& this.boards[8].winner!==''){
             b=true;
             this.add_wins(2,5,8)
         }
-        else if(this.boards[0].is_winning === this.boards[4].is_winning && this.boards[0].is_winning === this.boards[8].is_winning&& this.boards[8].is_winning !==false){
+        else if(this.boards[0].winner === this.boards[4].winner && this.boards[0].winner === this.boards[8].winner&& this.boards[8].winner !==''){
             b=true;
             this.add_wins(0,4,8)
-        }else if(this.boards[2].is_winning === this.boards[4].is_winning && this.boards[2].is_winning === this.boards[6].is_winning&& this.boards[6].is_winning!==false){
+        }else if(this.boards[2].winner === this.boards[4].winner && this.boards[2].winner === this.boards[6].winner&& this.boards[6].winner!==''){
             b=true;
             this.add_wins(2,4,6)
         }
@@ -106,5 +110,14 @@ class MainBoard{
     }
 
 }
+
+
+function reset_game(e){
+    e.stopPropagation();
+    delete board[0];
+    board[0] = new MainBoard('container');
+}
+
+MainBoard.reset_game_func = reset_game
 
 export default MainBoard

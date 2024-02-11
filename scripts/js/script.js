@@ -2,7 +2,7 @@
 import MainBoard from "./main_board.js";
 
 let board = [];
-board[0] = new MainBoard('container')
+// board[0] = new MainBoard('container')
 
 function reset_game(e){
     e.stopPropagation();

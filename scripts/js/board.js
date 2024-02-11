@@ -105,7 +105,7 @@ class Board {
             if(this.is_winning){
                 lay+= `${this.winner}`
             }else if(this.n_move ===9){
-                lay+="no one wins"
+                lay+=""
             }
             lay+='</h3></div>'
             html+=lay;
