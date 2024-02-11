@@ -1,6 +1,7 @@
 import Board from "./board.js";
 
 class MainBoard{
+    static reset_game_func;
 
     constructor(root_element_id) {
         Board.x_turn = false;
@@ -54,41 +55,19 @@ class MainBoard{
     }
 
     add_wins(b1,b2,b3){
-        this.winner = Board.x_turn ? 'o' : 'x';
+        this.winner = Board.x_turn ? 'x' : 'o';
     }
 
     add_layout(){
-        if(this.winner)
-            document.getElementById(this.root_element_id).innerHTML +=(`<div id="main_layout" class="layout"><h3>winner is ${this.winner}${'\n'}<button  id="play_again_button">play again</button></h3></div>`)
-        else if(this.draw)
-            document.getElementById(this.root_element_id).innerHTML +=(`<div id="main_layout" class="layout"><h3>no one wins${'\n'}<button id="play_again_button" >play again</button></h3></div>`)
+        if(!this.layout){
+            this.layout = true;
+            if(this.winner)
+                document.getElementById(this.root_element_id).innerHTML +=(`<div id="main_layout" class="layout"><h3>winner is ${this.winner}${'\n'}<button id="play_again_button">play again</button></h3></div>`)
+            else if(this.draw)
+                document.getElementById(this.root_element_id).innerHTML +=(`<div id="main_layout" class="layout"><h3>no one wins${'\n'}<button id="play_again_button" >play again</button></h3></div>`)
 
-
-        document.getElementById( "play_again_button").addEventListener('click',_=>{
-            this.winner = '';
-            this.draw = false;
-            this.boards = []
-
-
-            Board.obj_number = 0;
-            Board.last_index =0;
-            Board.x_turn = true;
-
-            this.render_board_html()
-            for (let i = 0; i < 9; i++) {
-                delete this.boards[i];
-                this.boards[i] = new Board('board-' + i)
-            }
-
-            this.layout =false;
-
-            // const elementsToRemove = document.getElementsByClassName('layout');
-            //
-            // while (elementsToRemove.length > 0) {
-            //     elementsToRemove[0].parentNode.removeChild(elementsToRemove[0]);
-            // }
-
-        })
+            document.getElementById("play_again_button").addEventListener('click',MainBoard.reset_game_func)
+        }
     }
 
     check_winning(){

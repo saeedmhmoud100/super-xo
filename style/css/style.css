@@ -86,12 +86,15 @@ div[id|=board] > .layout > h3 {
   justify-content: center;
   align-items: center;
   font-size: 3.5rem;
-  color: rebeccapurple;
+  color: #3d2828;
   text-decoration: underline;
 }
 #container > .layout > h3 {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #fff;
   padding: 30px;
+  border-radius: 20px;
+  border: 6px solid black;
+  color: black;
 }
 #container > .layout > h3 > button {
   display: block;
