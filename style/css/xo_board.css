@@ -139,6 +139,7 @@ div[id|=board] > .layout > h3 {
   text-decoration: none;
   width: 65%;
   padding: 7%;
+  margin-top: 5px;
 }
 #container::after {
   content: "";

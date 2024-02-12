@@ -13,9 +13,11 @@
   text-decoration: none;
 }
 
+.menu {
+  padding-top: 45px;
+}
 .menu > img {
   margin: auto;
-  margin-top: 45px;
   display: block;
 }
 .menu > .menu-buttons {

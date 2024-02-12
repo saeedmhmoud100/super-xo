@@ -1,9 +1,11 @@
 @use "utilities" as *;
 
 .menu{
+  padding-top: 45px;
+
   >img{
     margin: auto;
-    margin-top: 45px;
+    //margin-top: 45px;
     display: block;
   }
   > .menu-buttons{
