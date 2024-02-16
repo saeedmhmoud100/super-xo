@@ -1,9 +1,14 @@
 # Super XO(tic tac toy) game:
   ##  - its a developed version of tic tac toy game
   ### Rules:
-    - first you can play in place
-    - when you play, the second player has to play in the main board at the same index that you played in the small one, and so on
-    - when and you have to play in a board which over, then you can play in any place
+    -Each player takes turns making a move.
+    -When it’s your turn, you place your mark (either “X” or “O”) in one of the smaller boards.
+    -Your move guides your opponent to the corresponding mini-board on the larger grid.
+    -If you win a small board, it becomes yours on the larger grid.
+    Rules:
+    -Be strategic! Winning a small board is essential.
+    -Beware of closed boards: If a mini-board is already won or tied, you cannot play there.
+    -Your goal is to claim three mini-boards in a row on the larger grid.
   ### game URL: **[https://saeedmhmoud100.github.io/super-xo/](https://saeedmhmoud100.github.io/super-xo/)**
 
 ## **game images**

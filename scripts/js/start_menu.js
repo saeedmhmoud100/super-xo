@@ -5,11 +5,11 @@ function render_help_page(element_id){
     document.getElementById(element_id).innerHTML = `
         <div class="help-container" id="help-container">
         <ol>
-    
-          <li>in first you can play in any place</li>
-          <li>once you played, the second player has to play in the main board at the same index you played in the small board</li>
-          <li>if the board that you will play in is over then it's a free move</li>
-          <li>free move: move that you can play in any place</li>
+        <li>Each player takes turns making a move.</li>
+        <li>When it’s your turn, you place your mark (either “X” or “O”) in one of the smaller boards.</li>
+        <li>Your move guides your opponent to the corresponding mini-board on the larger grid.</li>
+        <li>If you win a small board, it becomes yours on the larger grid.</li>
+        <li>Beware of closed boards: If a mini-board is already won or tied, you cannot play there, you can play in any place</li>
         </ol>
         <button id="menu-button" class="my-button">menu</button>
       </div>
